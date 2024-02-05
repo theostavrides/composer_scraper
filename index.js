@@ -2,7 +2,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 const cheerio = require('cheerio');
 
 
-// Fetches html for a url
+// Fetches html from a url
 async function fetchHTML(url){
     const res = await fetch(url)
     const text = await res.text()
@@ -10,7 +10,7 @@ async function fetchHTML(url){
     return html
 }
 
-// Converts HTML tabular data array of objects
+// Converts HTML tabular data to an array of objects
 function parseHTML(html){
     const $ = cheerio.load(html);
     const $tables = $('table')
